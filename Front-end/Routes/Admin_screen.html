@@ -1,1 +1,490 @@
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Learn Afghan | Q&amp;A Hub Admin</title>
+    <link href="../Styles/Admin_screen.css" rel="stylesheet" />
+  </head>
+  <body>
+    <input
+      aria-label="Collapse sidebar"
+      class="sidebar-toggle"
+      id="sidebar-toggle"
+      type="checkbox"
+    />
+    <div class="app">
+      <aside class="sidebar">
+        <label
+          aria-label="Toggle sidebar"
+          class="sidebar-toggle-button"
+          for="sidebar-toggle"
+          title="Collapse or expand sidebar"
+          >☰</label
+        >
+        <div class="brand">
+          <img
+            alt="Q&amp;A Hub logo"
+            class="brand-logo"
+            src="../Assets/images/qa-logo.jpg"
+          />Q&amp;A Hub
+        </div>
+        <div class="menu-label">WORKSPACE</div>
+        <nav aria-label="Main menu">
+          <a class="active" data-page="dashboard" href="#dashboard">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5M5.5 9v12h5v-7h3v7h5V9"></path></svg>
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a data-page="explore" href="#explore">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5M8 11h6M11 8v6"></path></svg>
+            <span class="nav-text">Explore</span>
+          </a>
+          <a data-page="my-questions" href="#my-questions">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M5 3h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H9l-5 3v-3a3 3 0 0 1-2-3V6a3 3 0 0 1 3-3Z"></path><path d="M8 9h8M8 13h5"></path></svg>
+            <span class="nav-text">My questions</span>
+          </a>
+          <a data-page="saved" href="#saved">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"></path></svg>
+            <span class="nav-text">Saved</span>
+          </a>
+          <a data-page="notifications" href="#notifications">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"></path></svg>
+            <span class="nav-text">Notifications</span>
+          </a>
+          <a data-page="messages" href="#messages">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M4 4h16v13H9l-5 4z"></path><path d="M8 9h8M8 13h5"></path></svg>
+            <span class="nav-text">Messages</span>
+          </a>
+          <a data-page="settings" href="#settings">
+            <svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path><path d="m19.4 15 .1.1 1.3 1-1.5 2.6-1.6-.6a8 8 0 0 1-1.7 1l-.3 1.7h-3l-.3-1.7a8 8 0 0 1-1.7-1l-1.6.6-1.5-2.6 1.3-1a8 8 0 0 1 0-2l-1.3-1 1.5-2.6 1.6.6a8 8 0 0 1 1.7-1l.3-1.7h3l.3 1.7a8 8 0 0 1 1.7 1l1.6-.6 1.5 2.6-1.3 1a8 8 0 0 1-.1 1.9Z"></path></svg>
+            <span class="nav-text">Settings</span>
+          </a>
+        </nav>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <div class="header-center">
+            <nav aria-label="Breadcrumb" class="breadcrumbs">
+              Home / Dashboard
+            </nav>
+            <div class="search">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+                <circle cx="10.5" cy="10.5" r="7"></circle>
+                <path d="m16 16 6 6"></path></svg
+              ><input
+                aria-label="Search questions"
+                placeholder="Search Questions Here....."
+                type="search"
+              />
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="header-popover notification-popover">
+              <button
+                aria-controls="notifications-panel"
+                aria-expanded="false"
+                aria-label="Notifications, 3 unread"
+                class="bell"
+                type="button"
+              >
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                  <path
+                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                  ></path>
+                </svg>
+                <i aria-hidden="true"></i>
+              </button>
+              <section
+                aria-labelledby="notifications-title"
+                class="popover-panel notification-panel"
+                id="notifications-panel"
+                hidden
+              >
+                <div class="popover-heading">
+                  <div>
+                    <h2 id="notifications-title">Notifications</h2>
+                    <p class="popover-subtitle">3 unread alerts</p>
+                  </div>
+                  <button class="mark-all-read" data-mark-all-read type="button">Mark all read</button>
+                </div>
+                <ul class="notification-list">
+                  <li>
+                    <a class="notification-item" href="#my-questions">
+                      <i class="notification-unread" aria-hidden="true"></i>
+                      <span>
+                        <strong>4 unanswered questions</strong>
+                        <small>Students are waiting for an answer.</small>
+                        <time>24 minutes ago</time>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="notification-item" href="#explore">
+                      <i class="notification-unread" aria-hidden="true"></i>
+                      <span>
+                        <strong>Student activity is up</strong>
+                        <small>Student activity increased by 10% this week.</small>
+                        <time>Today</time>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="notification-item" href="#my-questions">
+                      <i class="notification-unread" aria-hidden="true"></i>
+                      <span>
+                        <strong>Weekly question summary</strong>
+                        <small>100 questions have been answered.</small>
+                        <time>Yesterday</time>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a class="popover-footer" href="#notifications">Open notification center</a>
+              </section>
+            </div>
+            <div class="header-popover profile-popover">
+              <button
+                aria-controls="profile-panel"
+                aria-expanded="false"
+                aria-label="Profile menu for Mr. Muhib"
+                class="profile profile-trigger"
+                type="button"
+              >
+                <img
+                  alt=""
+                  class="avatar"
+                  src="../Assets/images/admin-avatar.png"
+                />
+                <span class="profile-details">
+                  <strong>Mr. Muhib</strong>
+                  <small>muhib@learnistan.ai</small>
+                </span>
+                <span aria-hidden="true" class="profile-chevron">⌄</span>
+              </button>
+              <section
+                aria-label="Profile menu"
+                class="popover-panel profile-panel"
+                id="profile-panel"
+                hidden
+              >
+                <div class="profile-panel-heading">
+                  <strong>Mr. Muhib</strong>
+                  <small>muhib@learnistan.ai</small>
+                </div>
+                <a href="#settings">Account settings</a>
+                <a href="Sign_in.html">Sign out</a>
+              </section>
+            </div>
+          </div>
+        </header>
+        <main id="dashboard">
+          <h1>Hello Admin Muhib ,</h1>
+          <p class="subtitle">Here is what’s happening across Learn Afghan.</p>
+          <section aria-label="Dashboard statistics" class="stats">
+            <article class="stat blue">
+              <div class="stat-icon">
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-cap"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M2 8.5 12 3l10 5.5L12 14 2 8.5ZM5.5 11v6.2q6.5 5 13 0V11M3 9v8m0 0-1.5 4h3z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Students</h2>
+                <p>Total: 256</p>
+                <small>This Week: <b class="up">↑ 10%</b></small>
+              </div>
+            </article>
+            <article class="stat green">
+              <div class="stat-icon">
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-check"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2 21 6v7c0 4.6-4 8.1-9 10-5-1.9-9-5.4-9-10V6zM7 12l3 3 7-7"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Answered</h2>
+                <p>Total: 100</p>
+                <small>This Week: <b class="up">↑ 15%</b></small>
+              </div>
+            </article>
+            <article class="stat pink">
+              <div class="stat-icon">
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-cross"
+                  viewbox="0 0 24 24"
+                >
+                  <rect height="18" rx="3" width="18" x="3" y="3"></rect>
+                  <path d="m8 8 8 8m0-8-8 8"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Unanswered</h2>
+                <p>Total: 10</p>
+                <small>This Week: <b class="down">↓ 5%</b></small>
+              </div>
+            </article>
+            <article class="stat purple">
+              <div class="stat-icon">
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-chat"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M5 2h14a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H9l-5 4v-4a3 3 0 0 1-2-3V5a3 3 0 0 1 3-3Z"
+                  ></path>
+                  <path d="M7 10h1m3 0h1m3 0h1"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Questions</h2>
+                <p>Total: 112</p>
+                <small>This Week: <b class="down">↓ 3%</b></small>
+              </div>
+            </article>
+          </section>
+          <section class="analytics">
+            <article class="panel overview">
+              <div class="panel-head">
+                <h2>Questions overview</h2>
+                <span class="select">Last 7 days⌄</span>
+              </div>
+              <div class="legend">
+                <span><i class="dot mint"></i>Answered</span
+                ><span><i class="dot coral"></i>Unanswered</span>
+              </div>
+              <svg
+                aria-label="Questions overview chart, Monday through Sunday"
+                class="linechart"
+                role="img"
+                viewbox="0 0 350 280"
+              >
+                <g class="axis">
+                  <path
+                    d="M36 10V249H337"
+                    fill="none"
+                    stroke="#aaa"
+                    stroke-width="1"
+                  ></path>
+                  <g fill="#9ca3af" font-size="10" text-anchor="end">
+                    <text x="31" y="249">0</text>
+                    <text x="31" y="222">10</text>
+                    <text x="31" y="195">20</text>
+                    <text x="31" y="168">30</text>
+                    <text x="31" y="141">40</text>
+                    <text x="31" y="114">50</text>
+                    <text x="31" y="87">60</text>
+                    <text x="31" y="60">70</text>
+                    <text x="31" y="33">80</text>
+                    <text x="31" y="12">90</text>
+                  </g>
+                  <g fill="#9ca3af" font-size="10" text-anchor="middle">
+                    <text x="48" y="267">Mon</text>
+                    <text x="95" y="267">Tue</text>
+                    <text x="142" y="267">Wed</text>
+                    <text x="189" y="267">Thu</text>
+                    <text x="236" y="267">Fri</text>
+                    <text x="283" y="267">Sat</text>
+                    <text x="329" y="267">Sun</text>
+                  </g>
+                </g>
+                <polyline
+                  fill="none"
+                  points="36,18 48,18 51,35 70,37 72,62 102,62 105,84 105,184 245,184 260,179 282,165 299,150 310,112 336,110"
+                  stroke="#f3c7c6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                ></polyline>
+                <polyline
+                  fill="none"
+                  points="36,239 48,239 52,215 70,202 72,182 82,176 83,155 104,140 116,132 129,129 244,129 263,143 282,157 300,166 309,176 313,225 337,225"
+                  stroke="#a6efbd"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                ></polyline>
+              </svg>
+            </article>
+            <article class="panel classes-chart">
+              <div class="panel-head">
+                <h2>Questions by classes</h2>
+                <span class="select">Last 7 days⌄</span>
+              </div>
+              <div class="donut-content">
+                <svg
+                  aria-label="Questions by classes doughnut chart"
+                  class="donut-svg"
+                  role="img"
+                  viewbox="0 0 220 220"
+                >
+                  <circle
+                    cx="110"
+                    cy="110"
+                    fill="none"
+                    r="84"
+                    stroke="#ffe19b"
+                    stroke-dasharray="62 528"
+                    stroke-dashoffset="0"
+                    stroke-width="57"
+                    transform="rotate(-90 110 110)"
+                  ></circle>
+                  <circle
+                    cx="110"
+                    cy="110"
+                    fill="none"
+                    r="84"
+                    stroke="#79a9ee"
+                    stroke-dasharray="170 528"
+                    stroke-dashoffset="-65"
+                    stroke-width="57"
+                    transform="rotate(-90 110 110)"
+                  ></circle>
+                  <circle
+                    cx="110"
+                    cy="110"
+                    fill="none"
+                    r="84"
+                    stroke="#edc1e7"
+                    stroke-dasharray="49 528"
+                    stroke-dashoffset="-238"
+                    stroke-width="57"
+                    transform="rotate(-90 110 110)"
+                  ></circle>
+                  <circle
+                    cx="110"
+                    cy="110"
+                    fill="none"
+                    r="84"
+                    stroke="#74e47a"
+                    stroke-dasharray="154 528"
+                    stroke-dashoffset="-290"
+                    stroke-width="57"
+                    transform="rotate(-90 110 110)"
+                  ></circle>
+                  <circle
+                    cx="110"
+                    cy="110"
+                    fill="none"
+                    r="84"
+                    stroke="#f78e8d"
+                    stroke-dasharray="76 528"
+                    stroke-dashoffset="-447"
+                    stroke-width="57"
+                    transform="rotate(-90 110 110)"
+                  ></circle>
+                </svg>
+                <div class="donut-legend">
+                  <span><i class="dot technology"></i>Technology</span
+                  ><span><i class="dot robotics"></i>Robotics</span
+                  ><span><i class="dot languages"></i>Languages</span
+                  ><span><i class="dot school"></i>School subjects</span
+                  ><span><i class="dot other"></i>Others</span>
+                </div>
+              </div>
+            </article>
+            <article class="panel class-overview" id="classes">
+              <h2>
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-class"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M2 3h20v18H2zM5 17h14M7 9h3m4 0h3M6 14l3-2 3 2 3-2 3 2"
+                  ></path></svg
+                >Class overview
+              </h2>
+              <div class="class-list">
+                <div>Junior Technologists (Learnistan)</div>
+                <div>Robotics</div>
+                <div>Grade 12 (Gouharshad High School )</div>
+                <div>Grade 11 ( Soria High School )</div>
+              </div>
+              <a class="view-classes" href="#explore">Explore more　→</a>
+            </article>
+          </section>
+          <section class="bottom">
+            <article class="attention">
+              <h2>
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-alert"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M10.2 3.5a2 2 0 0 1 3.6 0l9 15.5A2 2 0 0 1 21 22H3a2 2 0 0 1-1.8-3zM12 9v5m0 3v1"
+                  ></path></svg
+                >Needs attention
+              </h2>
+              <div class="attention-body">
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-clock"
+                  viewbox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+                <div>
+                  <strong>4 Question Unanswered &lt; 24h</strong>
+                  <p>Students are waiting for<br />an answer!</p>
+                </div>
+              </div>
+              <a class="pill" href="#notifications">View All</a>
+            </article>
+            <article class="panel recent" id="recent">
+              <div class="recent-head">
+                <h2>
+                  <svg
+                    aria-hidden="true"
+                    class="icon icon-chat"
+                    viewbox="0 0 24 24"
+                  >
+                    <path
+                      d="M5 2h14a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H9l-5 4v-4a3 3 0 0 1-2-3V5a3 3 0 0 1 3-3Z"
+                    ></path>
+                    <path d="M7 10h1m3 0h1m3 0h1"></path></svg
+                  >Recent questions
+                </h2>
+                <a href="#my-questions">View All</a>
+              </div>
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Question</th>
+                      <th>class</th>
+                      <th>Statue</th>
+                      <th>Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>What is HTML? #html</strong></td>
+                      <td>Junior Technologists</td>
+                      <td>Answered</td>
+                      <td>12h ago</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="../../Back-end/Scripts/Admin_screen.js" defer></script>
+  </body>
+</html>

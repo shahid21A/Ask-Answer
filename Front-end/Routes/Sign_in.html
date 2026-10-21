@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to Q&A Hub, a learning community for questions and answers.">
+  <title>Sign In | Q&amp;A Hub</title>
+  <link rel="stylesheet" href="../Styles/Sign_in.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="welcome-panel" aria-label="Welcome to Q&A Hub">
+      <a class="brand" href="#" aria-label="Q&A Hub home">
+        <img src="../Assets/images3/qa-hub-logo.jpg" alt="Q&A Hub logo" class="brand-logo">
+        <span class="brand-name">Q&amp;A Hub</span>
+      </a>
+      <div class="welcome-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> LEARN • SHARE • GROW</span>
+        <h1>Every question<br>opens a <span>new door.</span></h1>
+        <p>Ask questions, learn from your classmates, and share what you know with a community that grows together.</p>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">✦</div>
+          <div>
+            <h2>Curiosity belongs here.</h2>
+            <p>Your next great answer could start with one small question.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-decoration decoration-one" aria-hidden="true"></div>
+      <div class="panel-decoration decoration-two" aria-hidden="true"></div>
+      <footer class="welcome-footer"><span class="online-dot"></span> A friendly space for curious minds</footer>
+    </section>
+
+    <section class="form-panel" aria-label="Sign in or create an account">
+      <a class="brand mobile-brand" href="#" aria-label="Q&A Hub home">
+        <img src="../Assets/assets/qa-hub-logo.jpg" alt="" class="brand-logo">
+        <span class="brand-name">Q&amp;A Hub</span>
+      </a>
+
+      <div class="form-wrap">
+        <div class="heading-icon" aria-hidden="true">✦</div>
+        <p class="eyebrow form-eyebrow" id="form-kicker">WELCOME BACK</p>
+        <h2 id="form-title">Sign in to your account</h2>
+        <p class="subtitle" id="form-subtitle">Pick up where your curiosity left off.</p>
+
+        <form id="account-form">
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <button type="button" class="text-link" id="forgot-link">Forgot password?</button>
+            </div>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required>
+              <button class="show-password" type="button" id="toggle-password" aria-label="Show password">Show</button>
+            </div>
+          </div>
+          <div class="remember-row" id="remember-row">
+            <label class="check-label"><input type="checkbox" name="remember"><span>Remember me</span></label>
+          </div>
+          <button class="primary-button" type="submit" id="submit-button">Sign In <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="divider"><span>OR</span></div>
+        <p class="switch-copy" id="switch-copy">Don't have an account? <button type="button" class="text-link switch-button" id="switch-mode">Create account</button></p>
+        <p class="terms">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+      </div>
+
+      <footer class="form-footer">
+        <span>© 2026 Q&amp;A Hub</span>
+        <span>Made for learners <span class="footer-star">✦</span></span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // Front-end prototype only. Connect an authentication service for real accounts.
+    const form = document.getElementById('account-form');
+    const title = document.getElementById('form-title');
+    const subtitle = document.getElementById('form-subtitle');
+    const kicker = document.getElementById('form-kicker');
+    const submit = document.getElementById('submit-button');
+    const switchCopy = document.getElementById('switch-copy');
+    const password = document.getElementById('password');
+    const message = document.getElementById('form-message');
+    const rememberRow = document.getElementById('remember-row');
+    const forgotLink = document.getElementById('forgot-link');
+    let isSignUp = false;
+
+    function switchMode() {
+      isSignUp = !isSignUp;
+      title.textContent = isSignUp ? 'Create your account' : 'Sign in to your account';
+      subtitle.textContent = isSignUp ? 'Join the community and start learning together.' : 'Pick up where your curiosity left off.';
+      kicker.textContent = isSignUp ? 'GET STARTED' : 'WELCOME BACK';
+      submit.innerHTML = isSignUp ? 'Create Account <span aria-hidden="true">→</span>' : 'Sign In <span aria-hidden="true">→</span>';
+      switchCopy.innerHTML = isSignUp
+        ? 'Already have an account? <button type="button" class="text-link switch-button" id="switch-mode">Sign in</button>'
+        : 'Don\\'t have an account? <button type="button" class="text-link switch-button" id="switch-mode">Create account</button>';
+      document.getElementById('switch-mode').addEventListener('click', switchMode);
+      rememberRow.hidden = isSignUp;
+      forgotLink.hidden = isSignUp;
+      password.autocomplete = isSignUp ? 'new-password' : 'current-password';
+      message.textContent = '';
+    }
+    document.getElementById('switch-mode').addEventListener('click', switchMode);
+
+    document.getElementById('toggle-password').addEventListener('click', function () {
+      const reveal = password.type === 'password';
+      password.type = reveal ? 'text' : 'password';
+      this.textContent = reveal ? 'Hide' : 'Show';
+      this.setAttribute('aria-label', reveal ? 'Hide password' : 'Show password');
+    });
+    forgotLink.addEventListener('click', () => {
+      message.textContent = 'Password reset will be available once authentication is connected.';
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      message.textContent = isSignUp
+        ? 'Demo only: connect an authentication service to create your account.'
+        : 'Demo only: connect an authentication service to sign in.';
+    });
+  </script>
+</body>
+</html>
 

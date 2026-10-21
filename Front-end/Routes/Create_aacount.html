@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Q&A Hub account and join a community for asking questions and sharing answers.">
+  <title>Create Account | Q&amp;A Hub</title>
+  <link rel="stylesheet" href="../Styles/Create_account.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="register.html" aria-label="Q&A Hub home">
+        <img src="../Assets/images1/qa-hub-logo.jpg" alt="Q&A Hub logo">
+        <span>Q&amp;A <strong>Hub</strong></span>
+      </a>
+      <p class="top-note">Already have an account? <a href="#" id="signin-link">Sign in</a></p>
+    </header>
+
+    <section class="layout">
+      <aside class="intro">
+        <span class="pill"><span class="pill-dot"></span> LEARN • ASK • SHARE</span>
+        <h1>Your next big idea<br>starts with a <span>question.</span></h1>
+        <p class="intro-copy">Create your account to ask questions, learn from classmates and teachers, and share what you know with the Q&amp;A Hub community.</p>
+
+        <div class="benefits">
+          <div class="benefit">
+            <span class="benefit-icon" aria-hidden="true">?</span>
+            <div><h2>Ask with confidence</h2><p>Get help when you're stuck and keep learning.</p></div>
+          </div>
+          <div class="benefit">
+            <span class="benefit-icon orange" aria-hidden="true">↗</span>
+            <div><h2>Learn together</h2><p>Explore answers from students and educators.</p></div>
+          </div>
+          <div class="benefit">
+            <span class="benefit-icon pale" aria-hidden="true">✦</span>
+            <div><h2>Build your knowledge</h2><p>Save useful discussions and follow topics.</p></div>
+          </div>
+        </div>
+        <div class="decor decor-a" aria-hidden="true"></div>
+        <div class="decor decor-b" aria-hidden="true"></div>
+      </aside>
+
+      <section class="form-card" aria-labelledby="form-title">
+        <div class="form-heading">
+          <div class="heading-icon" aria-hidden="true">✦</div>
+          <p class="eyebrow">GET STARTED — IT'S FREE</p>
+          <h2 id="form-title">Create your account</h2>
+          <p class="muted">Join the conversation and start learning today.</p>
+        </div>
+
+        <form id="register-form">
+          <div class="field">
+            <label for="fullname">Full name</label>
+            <input id="fullname" name="fullname" type="text" placeholder="Enter your full name" autocomplete="name" required minlength="2">
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="role">I am joining as</label>
+            <div class="select-wrap">
+              <select id="role" name="role" required>
+                <option value="" selected disabled>Select your role</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher / Educator</option>
+              </select>
+              <span aria-hidden="true">⌄</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="label-row"><label for="password">Create password</label><span class="hint">At least 8 characters</span></div>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" placeholder="Create a strong password" autocomplete="new-password" required minlength="8">
+              <button type="button" class="show-password" data-target="password">Show</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="confirm-password">Confirm password</label>
+            <div class="password-wrap">
+              <input id="confirm-password" name="confirm-password" type="password" placeholder="Enter your password again" autocomplete="new-password" required minlength="8">
+              <button type="button" class="show-password" data-target="confirm-password">Show</button>
+            </div>
+          </div>
+
+          <label class="terms-check">
+            <input id="terms" name="terms" type="checkbox" required>
+            <span>I agree to the <a href="#" class="inline-link">Terms of Service</a> and <a href="#" class="inline-link">Privacy Policy</a>.</span>
+          </label>
+
+          <button class="submit-button" type="submit">Create Account <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+        <p class="signin-bottom">Already a member? <a href="#" id="signin-bottom-link">Sign in</a></p>
+        <p class="security-note"><span aria-hidden="true">▣</span> Your details stay private and secure.</p>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Q&amp;A Hub</span>
+      <span>Curiosity brings us together <b>✦</b></span>
+    </footer>
+  </main>
+
+  <script>
+    // Front-end demo only. Connect an authentication backend to create real accounts.
+    const form = document.getElementById('register-form');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm-password');
+    const message = document.getElementById('form-message');
+
+    document.querySelectorAll('.show-password').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = document.getElementById(button.dataset.target);
+        const reveal = input.type === 'password';
+        input.type = reveal ? 'text' : 'password';
+        button.textContent = reveal ? 'Hide' : 'Show';
+        button.setAttribute('aria-label', reveal ? 'Hide password' : 'Show password');
+      });
+    });
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      message.className = 'form-message';
+      if (!form.reportValidity()) return;
+      if (password.value !== confirmPassword.value) {
+        confirmPassword.setCustomValidity('Passwords do not match.');
+        confirmPassword.reportValidity();
+        confirmPassword.addEventListener('input', () => confirmPassword.setCustomValidity(''), { once: true });
+        message.textContent = 'Please make sure both passwords match.';
+        message.classList.add('error');
+        return;
+      }
+      confirmPassword.setCustomValidity('');
+      message.textContent = 'Looks good! This demo is ready to connect to an account service. No account has been created yet.';
+      message.classList.add('success');
+    });
+
+    function showSigninDemo(event) {
+      event.preventDefault();
+      message.className = 'form-message';
+      message.textContent = 'The sign-in page is a separate file. Open index.html from your sign-in project to use it.';
+    }
+    document.getElementById('signin-link').addEventListener('click', showSigninDemo);
+    document.getElementById('signin-bottom-link').addEventListener('click', showSigninDemo);
+  </script>
+</body>
+</html>
 
