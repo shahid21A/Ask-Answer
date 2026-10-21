@@ -99,7 +99,7 @@
       submit.innerHTML = isSignUp ? 'Create Account <span aria-hidden="true">→</span>' : 'Sign In <span aria-hidden="true">→</span>';
       switchCopy.innerHTML = isSignUp
         ? 'Already have an account? <button type="button" class="text-link switch-button" id="switch-mode">Sign in</button>'
-        : 'Don\\'t have an account? <button type="button" class="text-link switch-button" id="switch-mode">Create account</button>';
+        : `Don't have an account? <button type="button" class="text-link switch-button" id="switch-mode">Create account</button>`;
       document.getElementById('switch-mode').addEventListener('click', switchMode);
       rememberRow.hidden = isSignUp;
       forgotLink.hidden = isSignUp;
@@ -120,9 +120,11 @@
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
-      message.textContent = isSignUp
-        ? 'Demo only: connect an authentication service to create your account.'
-        : 'Demo only: connect an authentication service to sign in.';
+      if (isSignUp) {
+        message.textContent = 'Demo only: connect an authentication service to create your account.';
+        return;
+      }
+      window.location.assign('Admin_screen.html');
     });
   </script>
 </body>

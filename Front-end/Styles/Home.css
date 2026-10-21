@@ -46,6 +46,9 @@ a { color: inherit; text-decoration: none; }
 .nav-link { padding: 10px 15px; border-radius: 10px; font-size: 13px; font-weight: 800; white-space: nowrap; transition: background .2s ease; }
 .nav-link:hover, .nav-link.active { background: #e3effc; color: var(--navy); }
 .nav-tools { display: flex; align-items: center; gap: 18px; margin-left: 18px; }
+.sign-in-button { display: inline-flex; min-height: 36px; align-items: center; justify-content: center; padding: 0 14px; border: 1px solid #b9cbe0; border-radius: 8px; color: var(--navy); font-size: 12px; font-weight: 900; white-space: nowrap; transition: background .2s ease, border-color .2s ease; }
+.sign-in-button:hover { background: #e3effc; border-color: #8eaccd; }
+.sign-in-button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .search-box { height: 36px; width: 154px; border-radius: 10px; background: #f0f5fb; display: flex; align-items: center; gap: 10px; padding: 0 13px; color: #8091a8; font-size: 12px; }
 .search-icon { width: 13px; height: 13px; border: 2px solid #315985; border-radius: 50%; position: relative; display: inline-block; }
 .search-icon:after { content: ""; position: absolute; width: 6px; height: 2px; background: #315985; right: -5px; bottom: -3px; transform: rotate(48deg); border-radius: 2px; }
@@ -111,6 +114,45 @@ h1 span { color: var(--blue); }
 .stat span { margin-top: 5px; font-size: 12px; color: #385574; white-space: nowrap; }
 .site-footer { width: min(1200px, calc(100% - 64px)); margin: 0 auto; padding: 0 0 20px; display: flex; justify-content: space-between; color: #8a9bb0; font-size: 11px; }
 
+.questions-section { padding: 64px 0 72px; background: #f6f9fd; scroll-margin-top: 20px; }
+.questions-wrap { width: min(1000px, calc(100% - 64px)); margin: auto; }
+.questions-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.questions-heading h2 { margin: 0; color: var(--navy-deep); font-size: 32px; line-height: 1.2; font-weight: 900; }
+.questions-heading p { margin: 9px 0 0; color: #506785; font-size: 14px; }
+.question-total { flex: none; padding-bottom: 4px; color: #6d819b; font-size: 12px; }
+.question-total strong { color: var(--navy); font-size: 18px; }
+.question-feed { display: grid; gap: 14px; }
+.question-card { min-width: 0; padding: 22px 24px 14px; border: 1px solid #dce6f0; border-radius: 10px; background: white; box-shadow: 0 4px 16px rgba(23,62,112,.035); }
+.question-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #8190a4; font-size: 11px; }
+.question-topic { display: inline-flex; padding: 5px 10px; border-radius: 14px; background: #eaf3fc; color: #416991; font-size: 11px; font-weight: 800; }
+.topic-robotics { background: #eaf5ed; color: #447854; }
+.topic-science { background: #fff3e3; color: #9a6a28; }
+.question-card h3 { margin: 15px 0 6px; color: var(--navy-deep); font-size: 19px; line-height: 1.4; font-weight: 900; }
+.question-card>p { margin: 0; color: #506785; font-size: 13px; line-height: 1.6; }
+.question-actions { display: flex; align-items: center; gap: 6px; margin-top: 17px; padding-top: 11px; border-top: 1px solid #edf2f7; }
+.question-action { display: inline-flex; min-height: 34px; align-items: center; justify-content: center; gap: 7px; padding: 0 9px; border: 0; border-radius: 6px; background: transparent; color: #63758b; font: inherit; font-size: 12px; cursor: pointer; }
+.question-action:hover { background: #f0f5fb; color: var(--navy); }
+.question-action svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.question-action.is-liked { color: #c55262; }
+.question-action.is-liked svg { fill: #fbe6e8; }
+.save-question { margin-left: auto; }
+.question-action.is-saved { color: #315f90; background: #eaf3fc; }
+.action-count { color: #91a0b2; font-size: 11px; }
+.question-comments[hidden] { display: none; }
+.question-comments { margin-top: 12px; padding-top: 14px; border-top: 1px solid #edf2f7; }
+.comment-list { display: grid; gap: 8px; margin-bottom: 12px; }
+.community-comment { padding: 10px 12px; border-left: 2px solid #c5d9ef; background: #f7f9fc; }
+.community-comment strong { color: #415b78; font-size: 11px; }
+.community-comment p { margin: 4px 0 0; color: #506785; font-size: 12px; line-height: 1.55; white-space: pre-wrap; }
+.comment-form { display: grid; gap: 8px; justify-items: end; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.comment-form textarea { width: 100%; min-height: 62px; resize: vertical; padding: 10px 12px; border: 1px solid #d5e1ed; border-radius: 7px; color: var(--ink); font: inherit; font-size: 12px; line-height: 1.5; }
+.comment-submit { min-height: 34px; padding: 0 13px; border: 0; border-radius: 6px; background: var(--navy); color: white; font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; }
+.comment-submit:hover { background: #17427f; }
+.questions-sign-in { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: #426b98; font-size: 12px; font-weight: 800; }
+.questions-sign-in:hover { color: var(--navy); text-decoration: underline; }
+.question-action:focus-visible,.comment-submit:focus-visible,.comment-form textarea:focus-visible,.menu-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
 @media (min-width: 1300px) {
   .hero-inner { min-height: 405px; }
   .hero-art { height: 405px; }
@@ -137,13 +179,16 @@ h1 span { color: var(--blue); }
 }
 @media (max-width: 760px) {
   .site-header { height: 66px; }
-  .nav-wrap { width: calc(100% - 32px); justify-content: space-between; }
+  .nav-wrap { position: relative; width: calc(100% - 32px); justify-content: space-between; }
   .brand { font-size: 19px; }
   .brand-mark { width: 42px; height: 42px; }
   .menu-toggle { display: flex; flex-direction: column; gap: 4px; border: 0; padding: 8px; background: #eaf4ff; border-radius: 8px; margin-left: auto; }
   .menu-toggle span { width: 18px; height: 2px; background: var(--navy); border-radius: 2px; }
-  .main-nav { display: none; }
+  .main-nav { position: absolute; top: calc(100% + 1px); left: 0; right: 0; z-index: 5; display: none; flex-direction: column; align-items: stretch; gap: 3px; padding: 8px; border: 1px solid #e2eaf3; border-radius: 9px; background: white; box-shadow: 0 10px 24px rgba(23,62,112,.12); }
+  .main-nav.is-open { display: flex; }
+  .main-nav .nav-link { padding: 11px 12px; }
   .nav-tools { gap: 10px; }
+  .sign-in-button { min-height: 34px; padding: 0 11px; font-size: 11px; }
   .search-box { width: 36px; padding: 0; justify-content: center; }
   .search-box span:last-child { display: none; }
   .hero-inner { width: calc(100% - 36px); display: flex; flex-direction: column; gap: 0; align-items: stretch; }
@@ -157,6 +202,15 @@ h1 span { color: var(--blue); }
   .hero-art { height: auto; min-height: 230px; margin: 0 -10px; }
   .hero-art img { width: 100%; height: auto; max-height: 290px; object-fit: contain; }
   .section-wrap, .community-wrap, .site-footer { width: calc(100% - 36px); }
+  .questions-wrap { width: calc(100% - 36px); }
+  .questions-section { padding: 42px 0 48px; }
+  .questions-heading { align-items: flex-start; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+  .questions-heading h2 { font-size: 26px; }
+  .questions-heading p { font-size: 13px; line-height: 1.5; }
+  .question-card { padding: 17px 16px 12px; }
+  .question-card h3 { font-size: 17px; }
+  .question-card-meta { align-items: flex-start; }
+  .question-card-meta > span:last-child { text-align: right; }
   .how-section { padding: 27px 0 24px; }
   .section-heading { margin-bottom: 18px; }
   .section-heading h2 { font-size: 28px; }
@@ -187,6 +241,9 @@ h1 span { color: var(--blue); }
   .brand { font-size: 16px; gap: 4px; }
   .brand-mark { width: 36px; height: 36px; }
   .nav-wrap { gap: 7px; }
+  .questions-heading h2 { font-size: 23px; }
+  .question-action { gap: 5px; padding: 0 6px; font-size: 11px; }
+  .sign-in-button { padding: 0 8px; font-size: 10px; }
   .hero-actions { gap: 8px; }
   .button { padding: 0 13px; font-size: 12px; }
   .step-card { padding: 13px 10px; }
