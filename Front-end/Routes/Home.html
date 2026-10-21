@@ -17,12 +17,14 @@
       <button class="menu-toggle" aria-label="Navigation menu" type="button"><span></span><span></span><span></span></button>
       <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#questions">Questions</a>
         <a class="nav-link" href="#how-it-works">Explore</a>
         <a class="nav-link" href="#community">Community</a>
         <a class="nav-link" href="#how-it-works">FAQ</a>
       </nav>
       <div class="nav-tools">
         <div class="search-box" role="search" aria-label="Search questions"><span class="search-icon"></span><span>Search...</span></div>
+        <a class="sign-in-button" href="Sign_in.html">Sign In</a>
       </div>
     </div>
   </header>
@@ -43,6 +45,76 @@
         <div class="hero-art">
           <img src="../Assets/images4/hero-illustration.jpg" alt="Student learning with a laptop, books, and question bubbles">
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="questions-title" class="questions-section" id="questions">
+      <div class="questions-wrap">
+        <div class="questions-heading">
+          <div>
+            <span class="section-kicker">FROM THE COMMUNITY</span>
+            <h2 id="questions-title">Questions worth exploring</h2>
+            <p>Browse what learners are asking and add something helpful.</p>
+          </div>
+          <span class="question-total"><strong>3</strong> recent questions</span>
+        </div>
+        <div class="question-feed">
+          <article class="question-card" data-question="ram-storage">
+            <div class="question-card-meta"><span class="question-topic">Technology</span><span>Junior Technologists <i aria-hidden="true">·</i> 12h ago</span></div>
+            <h3>What is the difference between RAM and storage?</h3>
+            <p>I understand that both hold data, but when does a computer use each one?</p>
+            <div class="question-actions" aria-label="Question actions">
+              <button aria-label="Like question" aria-pressed="false" class="question-action" data-like-question="ram-storage" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg><span>Like</span><span class="action-count" data-like-count>18</span></button>
+              <button aria-controls="comments-ram-storage" aria-expanded="false" class="question-action" data-toggle-comments type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 4h16v13H9l-5 4z"></path><path d="M8 9h8M8 13h5"></path></svg><span>Comment</span><span class="action-count" data-comment-count>1</span></button>
+              <button aria-label="Save question" aria-pressed="false" class="question-action save-question" data-save-question="ram-storage" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"></path></svg><span>Save</span></button>
+            </div>
+            <section aria-label="Comments" class="question-comments" hidden id="comments-ram-storage">
+              <div class="comment-list" data-comment-list><article class="community-comment"><strong>Farzana</strong><p>RAM is temporary working memory. Storage keeps files even when the computer is off.</p></article></div>
+              <form class="comment-form" data-comment-form>
+                <label class="visually-hidden" for="comment-ram-storage">Write a comment</label>
+                <textarea id="comment-ram-storage" maxlength="500" placeholder="Add a helpful comment..." required rows="2"></textarea>
+                <button class="comment-submit" type="submit">Post comment</button>
+              </form>
+            </section>
+          </article>
+          <article class="question-card" data-question="line-robot">
+            <div class="question-card-meta"><span class="question-topic topic-robotics">Robotics</span><span>Robotics Club <i aria-hidden="true">·</i> 1d ago</span></div>
+            <h3>How can I make a robot follow a black line?</h3>
+            <p>Which sensors and basic components would I need for a first project?</p>
+            <div class="question-actions" aria-label="Question actions">
+              <button aria-label="Like question" aria-pressed="false" class="question-action" data-like-question="line-robot" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg><span>Like</span><span class="action-count" data-like-count>12</span></button>
+              <button aria-controls="comments-line-robot" aria-expanded="false" class="question-action" data-toggle-comments type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 4h16v13H9l-5 4z"></path><path d="M8 9h8M8 13h5"></path></svg><span>Comment</span><span class="action-count" data-comment-count>1</span></button>
+              <button aria-label="Save question" aria-pressed="false" class="question-action save-question" data-save-question="line-robot" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"></path></svg><span>Save</span></button>
+            </div>
+            <section aria-label="Comments" class="question-comments" hidden id="comments-line-robot">
+              <div class="comment-list" data-comment-list><article class="community-comment"><strong>Omid</strong><p>Two infrared sensors can detect the contrast between the line and the floor.</p></article></div>
+              <form class="comment-form" data-comment-form>
+                <label class="visually-hidden" for="comment-line-robot">Write a comment</label>
+                <textarea id="comment-line-robot" maxlength="500" placeholder="Add a helpful comment..." required rows="2"></textarea>
+                <button class="comment-submit" type="submit">Post comment</button>
+              </form>
+            </section>
+          </article>
+          <article class="question-card" data-question="moon-phases">
+            <div class="question-card-meta"><span class="question-topic topic-science">Science</span><span>Grade 12 <i aria-hidden="true">·</i> 2d ago</span></div>
+            <h3>Why does the Moon appear to change shape?</h3>
+            <p>Is the Moon actually changing, or are we seeing different parts of it?</p>
+            <div class="question-actions" aria-label="Question actions">
+              <button aria-label="Like question" aria-pressed="false" class="question-action" data-like-question="moon-phases" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"></path></svg><span>Like</span><span class="action-count" data-like-count>9</span></button>
+              <button aria-controls="comments-moon-phases" aria-expanded="false" class="question-action" data-toggle-comments type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 4h16v13H9l-5 4z"></path><path d="M8 9h8M8 13h5"></path></svg><span>Comment</span><span class="action-count" data-comment-count>1</span></button>
+              <button aria-label="Save question" aria-pressed="false" class="question-action save-question" data-save-question="moon-phases" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"></path></svg><span>Save</span></button>
+            </div>
+            <section aria-label="Comments" class="question-comments" hidden id="comments-moon-phases">
+              <div class="comment-list" data-comment-list><article class="community-comment"><strong>Laila</strong><p>As the Moon orbits Earth, sunlight illuminates different portions of the side facing us.</p></article></div>
+              <form class="comment-form" data-comment-form>
+                <label class="visually-hidden" for="comment-moon-phases">Write a comment</label>
+                <textarea id="comment-moon-phases" maxlength="500" placeholder="Add a helpful comment..." required rows="2"></textarea>
+                <button class="comment-submit" type="submit">Post comment</button>
+              </form>
+            </section>
+          </article>
+        </div>
+        <a class="questions-sign-in" href="Sign_in.html">Sign in to ask a question <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -110,6 +182,7 @@
     </section>
   </main>
   <footer class="site-footer"><span>© 2026 Q&amp;A Hub</span><span>Ask questions. Share knowledge. Grow together.</span></footer>
+  <script src="../../Back-end/Scripts/Home.js" defer></script>
 </body>
 </html>
 

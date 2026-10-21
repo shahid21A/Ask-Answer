@@ -6,6 +6,28 @@
 
 	if (!main) return;
 
+	const sidebarToggle = document.querySelector("#sidebar-toggle");
+	const sidebarToggleButton = document.querySelector(".sidebar-toggle-button");
+
+	function syncSidebarToggle() {
+		if (!sidebarToggle || !sidebarToggleButton) return;
+		const isExpanded = !sidebarToggle.checked;
+		const label = isExpanded ? "Collapse sidebar" : "Expand sidebar";
+		sidebarToggleButton.setAttribute("aria-expanded", String(isExpanded));
+		sidebarToggleButton.setAttribute("aria-label", label);
+		sidebarToggleButton.title = label;
+		sidebarToggleButton.querySelector(".nav-text").textContent = label;
+	}
+
+	sidebarToggle?.addEventListener("change", syncSidebarToggle);
+	sidebarToggleButton?.addEventListener("keydown", (event) => {
+		if (event.key !== "Enter" && event.key !== " ") return;
+		event.preventDefault();
+		sidebarToggle.checked = !sidebarToggle.checked;
+		sidebarToggle.dispatchEvent(new Event("change", { bubbles: true }));
+	});
+	syncSidebarToggle();
+
 	const dashboardContent = main.innerHTML;
 	const pages = {
 		explore: {
