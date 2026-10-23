@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q&amp;A Hub – Student Dashboard</title>
+<link rel="stylesheet" href="styles-fixed.css">
+</head>
+<body>
+<input type="checkbox" id="navtoggle" hidden>
+<label for="navtoggle" class="scrim"></label>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="logo" viewBox="0 0 100 100"><path d="M64 40c15 0 28 11 28 26 0 8-4 15-10 20l4 10-14-5c-3 1-5 1-8 1-15 0-28-11-28-26s13-26 28-26z" fill="#9fc2fb"/><path d="M36 12c17 0 30 11 30 27 0 8-4 14-10 19-3 3-5 6-6 9-6 2-12 1-16 0l-14 7 5-14C14 54 6 47 6 38 6 22 19 12 36 12z" fill="#e1ecfd" stroke="#eef4fd" stroke-width="2.5"/><text x="34" y="52" font-size="42" font-weight="800" text-anchor="middle" fill="#14449e" font-family="Arial,sans-serif">?</text><circle cx="58" cy="68" r="3.2" fill="#fff"/><circle cx="68" cy="68" r="3.2" fill="#fff"/><circle cx="78" cy="68" r="3.2" fill="#fff"/><path d="M84 6c1 7 3 10 10 12-7 2-9 5-10 12-1-7-3-10-10-12 7-2 9-5 10-12z" fill="#9fc2fb"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h5v-6h4v6h5V9.5"/></symbol>
+  <symbol id="md" viewBox="0 0 24 24"><path d="M7 3h9a2 2 0 012 2v12l-4 4H7a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M9 8h6"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 4h16v12H11l-4 4v-4H4z"/><path d="M9 10l2 2 4-4"/></symbol>
+  <symbol id="cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/></symbol>
+  <symbol id="board" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 14v-3M12 14V9M16 14v-2M8 21h8"/></symbol>
+  <symbol id="merge" viewBox="0 0 24 24"><path d="M12 3v9M5 21l7-9 7 9M5 5l7 7 7-7" /></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+  <symbol id="palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a4 4 0 004-4c0-5-4.5-10-9-10z"/><circle cx="8" cy="11" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16" cy="11" r="1"/></symbol>
+  <symbol id="gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5l1.6 2.4 2.8-.6.8 2.7 2.7.8-.6 2.8L21.5 12l-2.4 1.6.6 2.8-2.7.8-.8 2.7-2.8-.6L12 21.5l-1.6-2.4-2.8.6-.8-2.7-2.7-.8.6-2.8L2.5 12l2.4-1.6-.6-2.8 2.7-.8.8-2.7 2.8.6z"/></symbol>
+  <symbol id="bm" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0112 0v6l2 2H4zM10 21h4"/></symbol>
+  <symbol id="srch" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 6v6h4"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v7c0 5-4 8.5-8 10-4-1.5-8-5-8-10V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="faq" viewBox="0 0 24 24"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5"/><path d="M10 12.5a2 2 0 114 0c0 1.5-2 1.5-2 3M12 18.5v.1"/></symbol>
+  <symbol id="bubble" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="14" rx="4"/><path d="M8 17.5v4l4-4"/><path d="M8 10.5h.1M12 10.5h.1M16 10.5h.1" stroke-width="2.4"/></symbol>
+  <symbol id="warn" viewBox="0 0 24 24"><path d="M12 3L2 20h20z"/><path d="M12 10v5M12 17.5v.1"/></symbol>
+  <symbol id="robot" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="5"/><path d="M12 5V2.5M1.5 11v3M22.5 11v3M9 11v2M15 11v2M9.5 16c1.5 1 3.5 1 5 0"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2c1 5 3 8 8 10-5 2-7 5-8 10-1-5-3-8-8-10 5-2 7-5 8-10z"/></symbol>
+  <symbol id="like" viewBox="0 0 24 24"><path d="M2.5 10h4v11h-4zM6.5 10l4-7c2 0 3 1.5 2.5 3.5L12.5 9H20a1.7 1.7 0 011.6 2.1l-2 8A2 2 0 0117.700 21H6.500"/></symbol>
+  <symbol id="cmt" viewBox="0 0 24 24"><path d="M12 3.500c5 0 9 3.300 9 7.500s-4 7.500-9 7.500c-1 0-2-.1-3-.4L4 21l1.500-4.200C3.800 15.400 3 13.300 3 11c0-4.200 4-7.500 9-7.500z"/></symbol>
+  <symbol id="pinI" viewBox="0 0 24 24"><path d="M15 3l6 6-3 1-3.500 3.500.5 4.500-2 2-4-4-5 5M9 7l-2 .5-2 2 9 9 2-2"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24"><path d="M12 20V4M5 11l7-7 7 7"/></symbol>
+  <symbol id="chv" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></symbol>
+  <symbol id="mask" viewBox="0 0 24 24"><path d="M3 7c4-2 14-2 18 0v4c0 4-4 7-9 7s-9-3-9-7z"/><path d="M7 11c1 1 3 1 4 0M13 11c1 1 3 1 4 0"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+ <symbol id="upl" viewBox="0 0 24 24"><path d="M7 18a5 5 0 01-.5-9.9A6 6 0 0118 9.500 4.300 4.300 0 0117 18M12 21v-9M8.500 15l3.500-3.500 3.500 3.500"/></symbol>
+ </defs>
+</svg>
+
+<!-- SIDEBAR -->
+<aside class="side">
+  <div class="brand"><svg class="logo"><use href="#logo"/></svg><span>Q&amp;A Hub</span></div>
+  <div class="sec">MAIN MENU</div>
+  <nav class="nav">
+    <a href="#" class="on"><svg class="i"><use href="#home"/></svg><span>Dashboard</span></a>
+    <a href="#"><svg class="i"><use href="#md"/></svg><span>Markdown guide</span></a>
+    <a href="#"><svg class="i"><use href="#chat"/></svg><span>My questions</span></a>
+    <a href="#"><svg class="i"><use href="#robot"/></svg><span>AI assistant</span></a>
+    <a href="#"><svg class="i"><use href="#board"/></svg><span>Classes</span><svg class="i chev"><use href="#chv"/></svg></a>
+  </nav>
+  <div class="gap-others"></div>
+  <div class="sec">Others</div>
+  <nav class="nav others">
+    <a href="#"><svg class="i"><use href="#bm"/></svg><span>Bookmarks</span></a>
+    <a href="#"><svg class="i"><use href="#gear"/></svg><span>Setting</span></a>
+    <a href="#"><svg class="i"><use href="#palette"/></svg><span>Theme</span><svg class="i chev"><use href="#chv"/></svg></a>
+  </nav>
+</aside>
+
+<div class="main">
+  <!-- HEADER -->
+  <header class="top">
+    <div class="mtop">
+      <label for="navtoggle" class="burger" aria-label="Open menu"><svg class="i" style="width:32px;height:32px"><use href="#menu"/></svg></label>
+      <span class="ttl"><svg class="logo"><use href="#logo"/></svg>Q&amp;A Hub</span>
+      <div class="r"><button class="bell action-bell" type="button" aria-label="Show notifications" aria-expanded="false"><svg class="i"><use href="#bell"/></svg><span class="notification-dot"></span></button><button class="mobile-profile-trigger profile-trigger" type="button" aria-label="Open profile menu" aria-expanded="false"><span class="avatar"></span></button></div>
+    </div>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="#" data-page="Dashboard">Home</a>
+      <svg class="i"><use href="#chv"/></svg>
+      <span id="breadcrumb-current">Dashboard</span>
+    </nav>
+    <label class="search"><svg class="i"><use href="#srch"/></svg><input type="search" placeholder="Search questions here...." aria-label="Search questions"></label>
+    <button class="bell action-bell" type="button" aria-label="Show notifications" aria-expanded="false"><svg class="i"><use href="#bell"/></svg><span class="notification-dot"></span></button>
+    <div class="vdiv"></div>
+    <button class="prof profile-trigger" type="button" aria-label="Open profile menu" aria-expanded="false"><span class="avatar"></span><div><b>Hana <svg class="i chv2"><use href="#chv"/></svg></b><small>hana21@gmail.com</small></div></button>
+    <label class="msearch"><svg class="i"><use href="#srch"/></svg><input type="search" placeholder="Search questions here..." aria-label="Search questions"></label>
+  </header>
+
+  <main class="content">
+    <h1>Hello Hana<span class="gd">,</span><span class="gm">!</span></h1>
+    <p class="sub"><span class="gd"> what is in your mind today ?</span><span class="gm">What is in your mind?</span></p>
+
+    <!-- ASK A QUESTION -->
+    <section class="ask">
+      <svg class="i big"><use href="#bubble"/></svg>
+      <div><h3>Ask a question</h3><p>Get help from your classmates, teachers and assistants.</p></div>
+      <div class="askrow">
+        <label class="askin"><svg class="i up"><use href="#upl"/></svg><input type="text" placeholder="Ask your question..." aria-label="Ask your question"><button type="button" class="send" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+        <a class="aibtn" href="#"><svg class="i"><use href="#spark"/></svg>Ask AI</a>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="qpanel">
+      <div class="tabs">
+        <a class="tab on" href="#">All questions</a>
+        <a class="tab" href="#">Answered</a>
+        <a class="tab" href="#">Unanswered</a>
+        <a class="tab or" href="#">Most popular</a>
+      </div>
+        <article class="q">
+          <span class="avatar" style="background:linear-gradient(135deg,#f0c9b4,#3a2420)"></span>
+          <div><h4>What is HTML? #html</h4><div class="meta"><span class="badge">Technology</span><span>12 Answers, 3h Ago</span></div></div>
+          <span class="dots">•••</span>
+          <div class="row">
+            <label class="ans"><input type="text" placeholder="Type an answer..." aria-label="Type an answer"><button type="button" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+            <div class="acts"><span><svg class="i"><use href="#like"/></svg><em>13</em></span><span><svg class="i"><use href="#cmt"/></svg><em>10</em></span><span><svg class="i"><use href="#bm"/></svg></span></div>
+          </div>
+        </article>
+        <article class="q">
+          <span class="avatar" style="background:linear-gradient(135deg,#8a8f98,#2a2d33)"></span>
+          <div><h4>What does UX stands for? #ux</h4><div class="meta"><span class="badge">Technology</span><span>12 Answers, 7h Ago</span></div></div>
+          <span class="dots">•••</span>
+          <div class="row">
+            <label class="ans"><input type="text" placeholder="Type an answer..." aria-label="Type an answer"><button type="button" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+            <div class="acts"><span><svg class="i"><use href="#like"/></svg><em>17</em></span><span><svg class="i"><use href="#cmt"/></svg><em>10</em></span><span><svg class="i"><use href="#bm"/></svg></span></div>
+          </div>
+        </article>
+        <article class="q">
+          <span class="avatar" style="background:linear-gradient(135deg,#f2c29a,#b5622f)"></span>
+          <div><h4>What is Cybersecurity? #cybersecurity</h4><div class="meta"><span class="badge">Technology</span><span>12 Answers, 7h Ago</span></div></div>
+          <span class="dots">•••</span>
+          <div class="row">
+            <label class="ans"><input type="text" placeholder="Type an answer..." aria-label="Type an answer"><button type="button" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+            <div class="acts"><span><svg class="i"><use href="#like"/></svg><em>22</em></span><span><svg class="i"><use href="#cmt"/></svg><em>17</em></span><span><svg class="i"><use href="#bm"/></svg></span></div>
+          </div>
+        </article>
+        <article class="q">
+          <span class="avatar" style="background:linear-gradient(135deg,#f6b49c,#d2562f)"></span>
+          <div><h4>What does UI stands for? #ui</h4><div class="meta"><span class="badge">Technology</span><span>12 Answers, 7h Ago</span></div></div>
+          <span class="dots">•••</span>
+          <div class="row">
+            <label class="ans"><input type="text" placeholder="Type an answer..." aria-label="Type an answer"><button type="button" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+            <div class="acts"><span><svg class="i"><use href="#like"/></svg><em>22</em></span><span><svg class="i"><use href="#cmt"/></svg><em>17</em></span><span><svg class="i"><use href="#bm"/></svg></span></div>
+          </div>
+        </article>
+        <article class="q">
+          <span class="avatar" style="background:linear-gradient(135deg,#f0c9b4,#3a2420)"></span>
+          <div><h4>What is HTML? #html</h4><div class="meta"><span class="badge">Technology</span><span>5 Answers, 3h Ago</span></div></div>
+          <span class="dots">•••</span>
+          <div class="row">
+            <label class="ans"><input type="text" placeholder="Type an answer..." aria-label="Type an answer"><button type="button" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+            <div class="acts"><span><svg class="i"><use href="#like"/></svg><em>13</em></span><span><svg class="i"><use href="#cmt"/></svg><em>10</em></span><span><svg class="i"><use href="#bm"/></svg></span></div>
+          </div>
+        </article>
+        <article class="q">
+          <span class="avatar" style="background:linear-gradient(135deg,#8a8f98,#2a2d33)"></span>
+          <div><h4>What does UX stands for? #ux</h4><div class="meta"><span class="badge">Technology</span><span>12 Answers, 7h Ago</span></div></div>
+          <span class="dots">•••</span>
+          <div class="row">
+            <label class="ans"><input type="text" placeholder="Type an answer..." aria-label="Type an answer"><button type="button" aria-label="Send"><svg class="i"><use href="#up"/></svg></button></label>
+            <div class="acts"><span><svg class="i"><use href="#like"/></svg><em>17</em></span><span><svg class="i"><use href="#cmt"/></svg><em>10</em></span><span><svg class="i"><use href="#bm"/></svg></span></div>
+          </div>
+        </article>
+    </section>
+  </main>
+</div>
+<div class="popover-layer" id="popover-layer" hidden></div>
+<div class="toast" id="app-toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const toast = document.getElementById('app-toast');
+  const layer = document.getElementById('popover-layer');
+  const breadcrumb = document.getElementById('breadcrumb-current');
+  const content = document.querySelector('.content');
+  const originalContent = content.innerHTML;
+  let toastTimer;
+
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+
+  const pageCopy = {
+    'Dashboard': ['Dashboard', 'Welcome back, Hana', 'Your Q&A Hub overview is ready.'],
+    'Markdown guide': ['Markdown guide', 'Markdown guide', 'Use Markdown to format questions and answers.'],
+    'My questions': ['My questions', 'My questions', 'Questions you have asked will appear here.'],
+    'AI assistant': ['AI assistant', 'AI assistant', 'Ask the AI assistant for help understanding a topic.'],
+    'Classes': ['Classes', 'My classes', 'Browse your classes and learning communities.'],
+    'Bookmarks': ['Bookmarks', 'Saved bookmarks', 'Questions you bookmark will appear here.'],
+    'Setting': ['Settings', 'Settings', 'Manage your account and notification preferences.'],
+    'Theme': ['Theme', 'Appearance', 'Choose how Q&A Hub looks on your device.']
+  };
+
+  function renderPage(name) {
+    const item = pageCopy[name] || pageCopy.Dashboard;
+    document.querySelectorAll('.nav a').forEach(a => {
+      a.classList.toggle('on', a.dataset.page === name);
+      a.setAttribute('aria-current', a.dataset.page === name ? 'page' : 'false');
+    });
+    breadcrumb.textContent = item[0];
+    if (name === 'Dashboard') {
+      content.innerHTML = originalContent;
+    } else {
+      content.innerHTML = `<section class="placeholder-page"><div class="placeholder-icon">✦</div><p class="eyebrow">Q&amp;A HUB</p><h1>${item[1]}</h1><p>${item[2]}</p><div class="placeholder-card"><strong>${item[1]}</strong><span>This section is now selected. Connect it to your real content or backend when available.</span></div><button type="button" class="return-dashboard">Return to Dashboard</button></section>`;
+      content.querySelector('.return-dashboard').addEventListener('click', () => renderPage('Dashboard'));
+    }
+    document.querySelectorAll('.nav a').forEach(a => a.classList.toggle('on', a.dataset.page === name));
+    document.getElementById('navtoggle').checked = false;
+    document.querySelector('.scrim').style.pointerEvents = '';
+  }
+
+  document.querySelectorAll('.nav a').forEach((a, index) => {
+    const name = a.querySelector('span')?.textContent.trim() || 'Dashboard';
+    a.href = '#';
+    a.dataset.page = name === 'Setting' ? 'Setting' : name;
+    a.addEventListener('click', event => {
+      event.preventDefault();
+      renderPage(a.dataset.page);
+    });
+  });
+  document.querySelector('.breadcrumbs a').addEventListener('click', e => {
+    e.preventDefault(); renderPage('Dashboard');
+  });
+
+  function closePopover() {
+    layer.hidden = true;
+    layer.innerHTML = '';
+    document.querySelectorAll('.action-bell,.profile-trigger').forEach(b => b.setAttribute('aria-expanded','false'));
+  }
+  function openPopover(type, trigger) {
+    const isNotifications = type === 'notifications';
+    const title = isNotifications ? 'Notifications' : 'Your profile';
+    const body = isNotifications
+      ? `<div class="notice-item"><span class="notice-dot"></span><div><strong>Welcome to Q&amp;A Hub</strong><p>Your student dashboard is ready to use.</p><small>Just now</small></div></div><div class="notice-item"><span class="notice-dot muted"></span><div><strong>Keep learning</strong><p>Explore questions from your classes.</p><small>Today</small></div></div><button class="popover-action" type="button" data-action="read">Mark all as read</button>`
+      : `<div class="profile-summary"><span class="avatar"></span><div><strong>Hana</strong><small>hana21@gmail.com</small></div></div><button class="profile-menu-item" type="button" data-page="My questions">My questions</button><button class="profile-menu-item" type="button" data-page="Bookmarks">Bookmarks</button><button class="profile-menu-item" type="button" data-page="Setting">Account settings</button><button class="profile-menu-item" type="button" data-action="signout">Sign out</button>`;
+    layer.innerHTML = `<section class="popover-card" role="dialog" aria-label="${title}"><div class="popover-heading"><strong>${title}</strong><button type="button" class="popover-close" aria-label="Close">×</button></div>${body}</section>`;
+    layer.hidden = false;
+    if (trigger) trigger.setAttribute('aria-expanded','true');
+    layer.querySelector('.popover-close').addEventListener('click', closePopover);
+    layer.querySelector('[data-action="read"]')?.addEventListener('click', () => {
+      layer.querySelectorAll('.notice-dot').forEach(dot => dot.classList.add('muted'));
+      document.querySelectorAll('.notification-dot').forEach(dot => dot.style.display = 'none');
+      showToast('All notifications marked as read.');
+    });
+    layer.querySelector('[data-action="signout"]')?.addEventListener('click', () => {
+      closePopover(); showToast('Sign-out needs to be connected to authentication.');
+    });
+    layer.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', () => {
+      const page = btn.dataset.page; closePopover(); renderPage(page);
+    }));
+  }
+  document.querySelectorAll('.action-bell').forEach(btn => btn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (!layer.hidden && layer.querySelector('.popover-card')?.getAttribute('aria-label') === 'Notifications') closePopover();
+    else openPopover('notifications', btn);
+  }));
+  document.querySelectorAll('.profile-trigger,.mobile-profile-trigger').forEach(btn => btn.addEventListener('click', e => {
+    e.stopPropagation(); openPopover('profile', btn);
+  }));
+  document.addEventListener('click', e => {
+    if (!layer.hidden && !layer.contains(e.target) && !e.target.closest('.action-bell,.profile-trigger,.mobile-profile-trigger')) closePopover();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopover(); });
+
+  const searchInputs = document.querySelectorAll('.search input,.msearch input');
+  searchInputs.forEach(input => input.addEventListener('input', () => {
+    if (!document.querySelector('.qpanel')) return;
+    const query = input.value.trim().toLowerCase();
+    document.querySelectorAll('.qpanel .q').forEach(card => {
+      card.hidden = !card.textContent.toLowerCase().includes(query);
+    });
+  }));
+})();
+</script>
+</body>
+</html>
